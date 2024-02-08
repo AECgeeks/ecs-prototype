@@ -1,0 +1,11 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "urn:bsi:ifc5:extrusion",
+  "type": "object",
+  "title": "extrusion",
+  "properties": {
+    "profile": { "$ref": "urn:bsi:ifc5:polyline" },
+    "depth": { "type": "number" }
+  },
+  "required": ["profile", "depth"]
+}

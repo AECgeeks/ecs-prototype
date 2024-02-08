@@ -1,0 +1,13 @@
+{
+    "allOf": [
+        {"$ref": "bsi/ifc5/assembly.json"}, 
+        {"$ref": "bsi/ifc5/classification.json"},
+        {"$ref": "bsi/ifc5/extrusion.json"},
+        {"$ref": "bsi/ifc5/geometry.json"},
+        {"$ref": "bsi/ifc5/polyline.json"},
+        {"$ref": "bsi/ifc5/relativeplacement.json"},
+        {"$ref": "bsi/ifc5/trianglemesh.json"},
+        {"$ref": "bsi/ifc5/type.json"},
+        {"$ref": "core/component.json"}
+    ]
+}

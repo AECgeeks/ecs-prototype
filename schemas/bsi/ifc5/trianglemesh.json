@@ -1,0 +1,12 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "urn:bsi:ifc5:triangle-mesh",
+  "type": "object",
+  "title": "triangle-mesh",
+  "properties": {
+    "positions": { "type": "array" },
+    "normals": { "type": "array" },
+    "indices": { "type": "array" }
+  },
+  "required": ["positions", "indices"]
+}

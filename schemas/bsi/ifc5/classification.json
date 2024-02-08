@@ -1,0 +1,10 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "urn:bsi:ifc5:classification",
+  "type": "object",
+  "title": "classification",
+  "properties": {
+    "name": { "type": "string" }
+  },
+  "required": ["name"]
+}

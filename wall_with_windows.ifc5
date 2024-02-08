@@ -1,0 +1,87 @@
+# wall
+{"type": "urn:bsi:ifc5:polyline", "entity": "wallpoly", "points": [[0.0, 0.0], [5.0, 0.0], [5.0, 0.3], [0.0, 0.3], [0.0, 0.0]]}
+{"type": "urn:bsi:ifc5:extrusion", "entity": "wallext", "profile": {"points": [[0.0, 0.0], [5.0, 0.0], [5.0, 0.3], [0.0, 0.3], [0.0, 0.0]]}, "depth": 3.0}
+{"type": "urn:bsi:ifc5:geometry", "tag": "axis", "entity": "wall", "ref": "wallpoly"}
+{"type": "urn:bsi:ifc5:geometry", "tag": "body", "entity": "wall", "ref": "wallext"}
+{"type": "urn:bsi:ifc5:relative-placement", "entity": "wall", "location": [1.0, 0.0, 0.0]}
+
+# window type
+{"type": "urn:bsi:ifc5:assembly", "entity": "windowtype", "ref": "frame"}
+{"type": "urn:bsi:ifc5:assembly", "entity": "frame", "ref": "bar1"}
+{"type": "urn:bsi:ifc5:assembly", "entity": "frame", "ref": "bar2"}
+{"type": "urn:bsi:ifc5:assembly", "entity": "frame", "ref": "bar3"}
+{"type": "urn:bsi:ifc5:assembly", "entity": "frame", "ref": "bar4"}
+{"type": "urn:bsi:ifc5:assembly", "entity": "windowtype", "ref": "glazing"}
+{"type": "urn:bsi:ifc5:type", "entity": "bar1", "ref": "bartype"}
+{"type": "urn:bsi:ifc5:type", "entity": "bar2", "ref": "bartype"}
+{"type": "urn:bsi:ifc5:type", "entity": "bar3", "ref": "bartype"}
+{"type": "urn:bsi:ifc5:type", "entity": "bar4", "ref": "bartype"}
+{"type": "urn:bsi:ifc5:geometry", "tag": "body", "entity": "bartype", "ref": "bargeometry"}
+{
+    "type": "urn:bsi:ifc5:triangle-mesh",
+    "entity": "bargeometry",
+    "positions":[[0.0, -0.05, 0.0], [0.0, -0.05, 1.0], [0.0, 0.05, 0.0], [0.0, 0.05, 1.0], [0.10, -0.05, 0.10], [0.10, -0.05, 0.90], [0.10, 0.05, 0.10], [0.10, 0.05, 0.90]],
+    "indices": [[1, 2, 0], [3, 6, 2], [7, 4, 6], [5, 0, 4], [6, 0, 2], [3, 5, 7], [1, 3, 2], [3, 7, 6], [7, 5, 4], [5, 1, 0], [6, 4, 0], [3, 1, 5]]
+}
+{
+    "type": "urn:bsi:ifc5:relative-placement",
+    "entity": "bar1",
+    "axes":   [[1.0, 0.0, 0.0],
+               [0.0, 1.0, 0.0],
+               [0.0, 0.0, 1.0]],
+    "location":[0.0, 0.0, 0.0]
+}
+{
+    "type": "urn:bsi:ifc5:relative-placement",
+    "entity": "bar2",
+    "axes":   [[0.0, 0.0, -1.0],
+               [0.0, 1.0,  0.0],
+               [1.0, 0.0,  0.0]],
+    "location":[1.0, 0.0,  0.0]
+}
+{
+    "type": "urn:bsi:ifc5:relative-placement",
+    "entity": "bar3",
+    "axes":   [[ 0.0, 0.0, 1.0],
+               [ 0.0, 1.0, 0.0],
+               [-1.0, 0.0, 0.0]],
+    "location":[ 0.0, 0.0, 1.0]
+}
+{
+    "type": "urn:bsi:ifc5:relative-placement",
+    "entity": "bar4",
+    "axes":   [[-1.0, 0.0, -0.0],
+               [ 0.0, 1.0,  0.0],
+               [ 0.0, 0.0, -1.0]],
+    "location":[ 1.0, 0.0,  1.0]
+}
+{"type": "urn:bsi:ifc5:geometry", "tag": "body", "entity": "glazing", "ref": "glazingext"}
+{"type": "urn:bsi:ifc5:extrusion", "entity": "glazingext", "profile": {"points": [[0.0, 0.0], [0.8, 0.0], [0.8, 0.01], [0.0, 0.01], [0.0, 0.0]]}, "depth": 0.8}
+{
+    "type": "urn:bsi:ifc5:relative-placement",
+    "entity": "glazing",
+    "location":[0.1, 0.0, 0.1]
+}
+{"type": "urn:bsi:ifc5:geometry", "tag": "void", "entity": "windowtype", "ref": "windowvoid"}
+{"type": "urn:bsi:ifc5:extrusion", "entity": "windowvoid", "profile": {"points": [[0.0, -0.5], [1.0, -0.5], [1.0, 0.5], [0.0, 0.5], [0.0, -0.5]]}, "depth": 1.0}
+
+
+# window1 and 2
+{"type": "urn:bsi:ifc5:type", "entity": "window1", "ref": "windowtype"}
+{
+    "type": "urn:bsi:ifc5:relative-placement",
+    "entity": "window1",
+    "location":[1.0, 0.1, 1.0],
+    "ref": "wall"
+}
+{"type": "urn:bsi:ifc5:type", "entity": "window2", "ref": "windowtype"}
+{
+    "type": "urn:bsi:ifc5:relative-placement",
+    "entity": "window2",
+    "location":[3.0, 0.1, 1.0],
+    "ref": "wall"
+}
+
+# relationships
+{"type": "urn:bsi:ifc5:contain", "entity": "wall", "ref": "window1"}
+{"type": "urn:bsi:ifc5:contain", "entity": "wall", "ref": "window2"}
